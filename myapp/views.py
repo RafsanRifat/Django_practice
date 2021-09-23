@@ -16,7 +16,7 @@ def contact(request):
         name = request.POST['name']
         email = request.POST['email']
         text = request.POST['text']
-    print(name)
-    print(email)
-    print(text)
+        print(name)
+        print(email)
+        print(text)
     return render(request, 'contact.html')

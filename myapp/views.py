@@ -9,3 +9,7 @@ def home(request):
         'name':name
     }
     return render(request, 'index.html', contex)
+
+
+def contact(request):
+    return render(request, 'contact.html')

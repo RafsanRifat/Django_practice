@@ -16,6 +16,7 @@ def home(request):
 
 def contact(request):
     if request.method == 'POST':
+        form = ContactForm(request.POST)
         name = request.POST['name']
         email = request.POST['email']
         text = request.POST['text']

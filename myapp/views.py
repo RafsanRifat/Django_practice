@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Contact
+from .forms import ContactForm
 
 
 # Create your views here.
@@ -20,5 +21,9 @@ def contact(request):
         text = request.POST['text']
         obj = Contact(name=name, email=email, text=text)
         obj.save()
+    else:
+        form = ContactForm()
 
-    return render(request, 'contact.html')
+    contex = {'form': form}
+
+    return render(request, 'contact.html', contex)

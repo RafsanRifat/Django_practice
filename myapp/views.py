@@ -17,11 +17,12 @@ def home(request):
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
-        name = form.cleaned_data['name']
-        email = form.cleaned_data['email']
-        text = form.cleaned_data['text']
-        obj = Contact(name=name, email=email, text=text)
-        obj.save()
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            text = form.cleaned_data['text']
+            obj = Contact(name=name, email=email, text=text)
+            obj.save()
     else:
         form = ContactForm()
 

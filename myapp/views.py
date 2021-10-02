@@ -25,7 +25,6 @@ def contact(request):
             obj.save()
     else:
         form = ContactForm()
-
     contex = {'form': form}
 
     return render(request, 'contact.html', contex)

@@ -1,4 +1,5 @@
 {% extends 'basic.html' %}
+{% load crispy_forms_tags %}
 {% block title %}
     contact
 {% endblock %}
@@ -7,7 +8,7 @@
     <h2 class="mt-5">Hey ! Contact with us </h2>
     <form action="" method="post" class="mt-5">
         {% csrf_token %}
-        {{ form }}
+        {{ form | crispy }}
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 

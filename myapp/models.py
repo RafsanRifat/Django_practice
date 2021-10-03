@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 class Contact(models.Model):
@@ -9,3 +10,18 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Post(models.Model):
+    CATEGORY = (
+        ('Teacher', 'Teacher'),
+        ('Student', 'Student'),
+    )
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=100)
+    slug = models.CharField(max_length=100)
+    email = models.EmailField()
+    salary = models.FloatField()
+    details = models.TextField()
+    available = models.BooleanField()
+    category = models.CharField(max_length=100, choices=CATEGORY)

@@ -25,3 +25,6 @@ class Post(models.Model):
     details = models.TextField()
     available = models.BooleanField()
     category = models.CharField(max_length=100, choices=CATEGORY)
+
+    def __str__(self):
+        return self.title

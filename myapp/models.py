@@ -19,7 +19,7 @@ class Post(models.Model):
     )
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
-    slug = models.CharField(max_length=100)
+    slug = models.CharField(max_length=100, default=title)
     email = models.EmailField()
     salary = models.FloatField()
     details = models.TextField()

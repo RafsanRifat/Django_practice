@@ -33,4 +33,5 @@ def contact(request):
 
 def post(request):
     post = Post.objects.all()
-    return render(request, 'post.html')
+    contex = {'post': post}
+    return render(request, 'post.html', contex)

@@ -28,7 +28,7 @@ class Post(models.Model):
     available = models.BooleanField()
     category = models.CharField(max_length=100, choices=CATEGORY)
     created_at = models.DateTimeField(default=now)
-    image = models.ImageField(default='default.jpg', upload_to='media/images')
+    image = models.ImageField(default='default.jpg', upload_to='media/myapp/images')
 
     def __str__(self):
         return self.title

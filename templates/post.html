@@ -6,5 +6,17 @@
 
 
 {% block content %}
-
+    <div class="latest-post">
+    {% for p in post %}
+        <h2 class="mt-5" style="display: flex; justify-content: center;">Latest post by our users:</h2>
+        <hr>
+        <h4>{{ p.title }}</h4>
+        <img src="" alt="">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet distinctio doloremque dolorum exercitationem
+            explicabo facilis harum, inventore ipsa iure laboriosam magnam minima minus odio porro praesentium quam, qui
+            saepe similique voluptatibus voluptatum! Earum expedita saepe voluptas! Animi at, consectetur dolor
+            doloremque facilis harum impedit pariatur quibusdam quidem repellendus rerum tempore?</p>
+        <span class="salary"><b>Salary: </b></span> <span></span>
+    {% endfor %}
+    </div>
 {% endblock %}

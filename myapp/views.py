@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Contact
+from .models import Contact,Post
 from .forms import ContactForm
 
 
@@ -32,4 +32,5 @@ def contact(request):
 
 
 def post(request):
+    post = Post.objects.all()
     return render(request, 'post.html')

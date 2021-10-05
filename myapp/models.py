@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.timezone import now
-from PIL import image
+from PIL import Image
 from django.utils.text import slugify
 
 
@@ -35,9 +35,9 @@ class Post(models.Model):
     def save(self):
         self.slug = slugify(self.title)
         super().save()    #saving image first
-        img = image.open(self.image.path)
+        img = Image.open(self.image.path)
         if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
+            output_size = (500, 320)
             img.thumbnail (output_size)
             img.save(self.image.path)
 

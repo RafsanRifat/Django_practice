@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils.timezone import now
+from PIL import image
+from django.utils.text import slugify
 
 
 
@@ -29,6 +31,16 @@ class Post(models.Model):
     category = models.CharField(max_length=100, choices=CATEGORY)
     created_at = models.DateTimeField(default=now)
     image = models.ImageField(default='/myapp/images/default.jpg', upload_to='myapp/images')
+
+    def save(self):
+        self.slug = slugify(self.title)
+        super().save()    #saving image first
+        img = image.open(self.image.path)
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail (output_size)
+            img.save(self.image.path)
+
 
     def __str__(self):
         return self.title

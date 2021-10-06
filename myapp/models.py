@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.timezone import now
 from PIL import Image
 from django.utils.text import slugify
+from multiselectfield import MultiSelectField
 
 
 

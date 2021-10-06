@@ -23,10 +23,10 @@ class Post(models.Model):
         ('Student', 'Student'),
     )
     MEDIUM = (
-        ('Bangla', 'Bangla')
-        ('English', 'English')
-        ('Urdu', 'Urdu')
-        ('Turkey', 'Turkey')
+        ('Bangla', 'Bangla'),
+        ('English', 'English'),
+        ('Urdu', 'Urdu'),
+        ('Turkey', 'Turkey'),
     )
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
@@ -38,7 +38,7 @@ class Post(models.Model):
     category = models.CharField(max_length=100, choices=CATEGORY)
     created_at = models.DateTimeField(default=now)
     image = models.ImageField(default='/myapp/images/default.jpg', upload_to='myapp/images')
-    medium = MultiSelectField(max_length=150, choices=MEDIUM, max_choices = 5)
+    medium = MultiSelectField(max_length=150, choices=MEDIUM, max_choices = 5, default='Bangla')
 
     def save(self):
         self.slug = slugify(self.title)

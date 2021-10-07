@@ -1,10 +1,12 @@
 {% extends 'basic.html' %}
+{% load crispy_forms_tags %}
 {% block title %}
     postcreate
 {% endblock %}
 
 {% block content %}
     <div class="col-md-6 ofset-md-3">
+    <h2 style="margin-top: 100px; margin-bottom: 50px">Create your post : </h2>
         <form method="post">
             {% csrf_token %}
             {{ form | crispy }}

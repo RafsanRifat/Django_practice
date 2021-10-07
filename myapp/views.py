@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from .models import Contact,Post
 from .forms import ContactForm, PostForm
 
@@ -45,6 +45,15 @@ def postcreate(request):
             obj = form.save(commit=False)
             obj.user = request.user
             obj.save()
+            sub = form.cleaned_data['subject']
+            for i in sub:
+                obj.subject.add(i)
+                obj.save()
+            class_in = form.cleaned_data['class_in']
+            for i in class_in:
+                obj.class_in.add(i)
+                obj.save()
+            return HttpResponse('Your form is successfully submited')
     else:
         form = PostForm
     contex = {'form': form}

@@ -40,9 +40,11 @@ def post(request):
 
 def postcreate(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            obj = form.save(commit=False)
+            obj.user = request.user
+            obj.save()
     else:
         form = PostForm
     contex = {'form': form}

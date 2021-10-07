@@ -42,7 +42,7 @@ class Post(models.Model):
         ('Urdu', 'Urdu'),
         ('Turkey', 'Turkey'),
     )
-    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
     slug = models.CharField(max_length=100, default=title)

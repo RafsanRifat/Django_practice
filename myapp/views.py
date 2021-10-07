@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Contact,Post
-from .forms import ContactForm
+from .forms import ContactForm, PostForm
 
 
 # Create your views here.
@@ -35,3 +35,16 @@ def post(request):
     post = Post.objects.all()
     contex = {'post': post}
     return render(request, 'post.html', contex)
+
+
+
+def postcreate(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = PostForm
+    contex = {'form': form}
+    return render(request, 'postcreate.html', contex)
+

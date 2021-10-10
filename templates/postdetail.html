@@ -5,5 +5,7 @@
 
 {% block content %}
     <h2>Post details : </h2>
-    Title = {{ object.title }}
+     <h4>{{ object.title }}</h4>
+    <img src="{{ object.image.url }}" alt="">
+    <p>{{ object.details }}</p>
 {% endblock %}

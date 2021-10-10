@@ -32,9 +32,12 @@ def contact(request):
     return render(request, 'contact.html', contex)
 
 
+
+
 class PostListView(ListView):  # List view
     template_name = 'postlist.html'
     model = Post
+    context_object_name = 'postlist'
 
 
 def post(request):

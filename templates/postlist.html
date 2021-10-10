@@ -6,8 +6,10 @@
 
 {% block content %}
 
-    {% for p in object_list %}
-        {{ p.title }} : <a href="/details/{{ p.slug }}">Details</a> <hr><br>
+{#    {% for p in object_list %}#}
+      {% for p in postlist %}
+        <br>{{ p.title }} :<a href="/details/{{ p.slug }}">Details</a>
+        <hr>
     {% endfor %}
 
 {% endblock %}

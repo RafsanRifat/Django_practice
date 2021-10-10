@@ -6,5 +6,5 @@ urlpatterns = [
     path('contact/', contact, name='contact'),
     path('post/', post, name='post'),
     path('postcreate/', postcreate, name='postcreate'),
-    path('postlist/', PostListView, name='postlistview'),
+    path('postlist/', PostListView.as_view(), name='postlistview'),
 ]

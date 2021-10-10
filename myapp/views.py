@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from .models import Contact, Post
 from .forms import ContactForm, PostForm
-from django.views.generic import ListView
+from django.views.generic import ListView,DetailView
 
 
 # Create your views here.
@@ -38,6 +38,11 @@ class PostListView(ListView):  # List view
     template_name = 'postlist.html'
     model = Post
     context_object_name = 'postlist'
+
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'postdetail.html'
 
 
 def post(request):

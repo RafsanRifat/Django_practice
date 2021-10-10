@@ -1,4 +1,4 @@
-from .views import home,contact,post,postcreate
+from .views import home,contact,post,postcreate,PostListView
 from django.urls import path,include
 
 urlpatterns = [
@@ -6,4 +6,5 @@ urlpatterns = [
     path('contact/', contact, name='contact'),
     path('post/', post, name='post'),
     path('postcreate/', postcreate, name='postcreate'),
+    path('postlist/', PostListView, name='postlistview'),
 ]

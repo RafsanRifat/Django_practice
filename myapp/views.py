@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse
-from .models import Contact,Post
+from .models import Contact, Post
 from .forms import ContactForm, PostForm
+from django.views.generic import ListView
 
 
 # Create your views here.
@@ -31,11 +32,15 @@ def contact(request):
     return render(request, 'contact.html', contex)
 
 
+class PostListView(ListView):  # List view
+    template_name = 'postlist.html'
+    model = Post
+
+
 def post(request):
     post = Post.objects.all()
     contex = {'post': post}
     return render(request, 'post.html', contex)
-
 
 
 def postcreate(request):
@@ -58,4 +63,3 @@ def postcreate(request):
         form = PostForm
     contex = {'form': form}
     return render(request, 'postcreate.html', contex)
-

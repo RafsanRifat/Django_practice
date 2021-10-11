@@ -47,7 +47,7 @@ class PostDetailView(DetailView):
 
 class PostUpdateView(UpdateView):
     model = Post
-    fields = '__all__'
+    form_class = PostForm
     template_name = 'postcreate.html'
 
 

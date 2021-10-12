@@ -1,4 +1,6 @@
 from django.shortcuts import render, HttpResponse
+from django.urls import reverse_lazy
+
 from .models import Contact, Post
 from .forms import ContactForm, PostForm
 from django.views.generic import ListView,DetailView,UpdateView
@@ -49,6 +51,9 @@ class PostUpdateView(UpdateView):
     model = Post
     form_class = PostForm
     template_name = 'postcreate.html'
+    def get_success_url(self):
+        self.object.id
+        return reverse_lazy('tuition:postdetails', kwargs = {'pk':id})
 
 
 def post(request):

@@ -1,5 +1,5 @@
-from .views import home,contact,post,postcreate,PostListView,PostDetailView,PostUpdateView
-from django.urls import path,include
+from .views import home, contact, post, postcreate, PostListView, PostDetailView, PostUpdateView
+from django.urls import path, include
 
 urlpatterns = [
     path('', home, name='home'),

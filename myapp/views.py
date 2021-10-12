@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 
 from .models import Contact, Post
 from .forms import ContactForm, PostForm
-from django.views.generic import ListView,DetailView,UpdateView
+from django.views.generic import ListView, DetailView, UpdateView
 
 
 # Create your views here.
@@ -34,8 +34,6 @@ def contact(request):
     return render(request, 'contact.html', contex)
 
 
-
-
 class PostListView(ListView):  # List view
     template_name = 'postlist.html'
     model = Post
@@ -51,9 +49,10 @@ class PostUpdateView(UpdateView):
     model = Post
     form_class = PostForm
     template_name = 'postcreate.html'
+
     def get_success_url(self):
         id = self.object.id
-        return reverse_lazy('myapp:postdetails', kwargs = {'pk': id})
+        return reverse_lazy('myapp:postdetails', kwargs={'pk': id})
 
 
 def post(request):

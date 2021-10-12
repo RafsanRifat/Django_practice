@@ -6,8 +6,8 @@
 
 {% block content %}
 
-{#    {% for p in object_list %}#}
-      {% for p in postlist %}
+    {#    {% for p in object_list %}#}
+    {% for p in postlist %}
         <br>{{ p.title }} :<a href="/postdetails/{{ p.id }}">Details</a>
         <hr>
     {% endfor %}

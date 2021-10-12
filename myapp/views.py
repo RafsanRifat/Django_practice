@@ -52,8 +52,8 @@ class PostUpdateView(UpdateView):
     form_class = PostForm
     template_name = 'postcreate.html'
     def get_success_url(self):
-        self.object.id
-        return reverse_lazy('tuition:postdetails', kwargs = {'pk':id})
+        id = self.object.id
+        return reverse_lazy('myapp:postdetails', kwargs = {'pk': id})
 
 
 def post(request):

@@ -8,4 +8,7 @@
      <h4>{{ object.title }}</h4>
     <img src="{{ object.image.url }}" alt="">
     <p>{{ object.details }}</p>
+    {% if request.user == object.user %}
+        <a class="btn btn-success" href="{% url 'update' %}">Update</a>
+    {% endif %}
 {% endblock %}

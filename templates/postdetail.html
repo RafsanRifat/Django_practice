@@ -9,6 +9,6 @@
     <img src="{{ object.image.url }}" alt="">
     <p>{{ object.details }}</p>
     {% if request.user == object.user %}
-        <a class="btn btn-success" href="/update/{{ object.id }}/">Update</a>
+        <a class="btn btn-warning" href="/update/{{ object.id }}/">Update</a>
     {% endif %}
 {% endblock %}

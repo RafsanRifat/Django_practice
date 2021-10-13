@@ -1,6 +1,5 @@
 from django.shortcuts import render, HttpResponse
 from django.urls import reverse_lazy
-
 from .models import Contact, Post
 from .forms import ContactForm, PostForm
 from django.views.generic import ListView, DetailView, UpdateView

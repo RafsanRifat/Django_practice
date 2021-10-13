@@ -51,7 +51,7 @@ class PostUpdateView(UpdateView):
 
     def get_success_url(self):
         id = self.object.id
-        return reverse_lazy('myapp:postdetails', kwargs={'pk': id})
+        return reverse_lazy('postdetails', kwargs={'pk': id})
 
 
 def post(request):

@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse
 from django.urls import reverse_lazy
 from .models import Contact, Post
 from .forms import ContactForm, PostForm
-from django.views.generic import ListView, DetailView, UpdateView
+from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 
 
 # Create your views here.
@@ -52,6 +52,12 @@ class PostUpdateView(UpdateView):
     def get_success_url(self):
         id = self.object.id
         return reverse_lazy('postdetails', kwargs={'pk': id})
+
+
+class DeletePost(DeleteView):
+    model = Post
+    template_name = 'delete.html'
+    success_url = reverse_lazy('postlistview')
 
 
 def post(request):

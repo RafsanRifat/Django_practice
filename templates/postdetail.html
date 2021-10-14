@@ -10,5 +10,6 @@
     <p>{{ object.details }}</p>
     {% if request.user == object.user %}
         <a class="btn btn-warning" href="/update/{{ object.id }}/">Update</a>
+        <a class="btn btn-danger" href="/delete/{{ object.id }}/">Delete</a>
     {% endif %}
 {% endblock %}

@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from .models import Contact, Post
 from .forms import ContactForm, PostForm
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView
+from django.contrib import messages
 
 
 # Create your views here.
@@ -26,6 +27,7 @@ def contact(request):
             # obj = Contact(name=name, email=email, text=text)
             # obj.save()    # django form er khetre code gulo dorkar, r Model form use korle code gulo use na kore form.save() diyeai kaj hbe
             form.save()  # uporer code gulo na use kore eita use korleo form data save hobe database a
+            messages.success(request, 'Form successfully  submitted ')
     else:
         form = ContactForm()
     contex = {'form': form}

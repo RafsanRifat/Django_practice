@@ -1,10 +1,12 @@
 {% extends 'basic.html' %}
+{% load humanize %}
 {% block title %}
     post details
 {% endblock %}
 
 {% block content %}
     <h2>Post details : </h2>
+    <span>Posted:</span> {{ object.created_at | naturaltime }}
     <h4>{{ object.title }}</h4>
     <img src="{{ object.image.url }}" alt="">
     <p>{{ object.details }}</p>

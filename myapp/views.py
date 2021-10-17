@@ -27,7 +27,7 @@ def contact(request):
             # obj = Contact(name=name, email=email, text=text)
             # obj.save()    # django form er khetre code gulo dorkar, r Model form use korle code gulo use na kore form.save() diyeai kaj hbe
             form.save()  # uporer code gulo na use kore eita use korleo form data save hobe database a
-            messages.success(request, 'Form successfully  submitted ')  # we can also use here
+            messages.success(request, 'Form successfully  submitted ')  # we can also use here message.error,debug, warning,info
             return redirect('post')
         else:
             messages.error(request, 'Form successfully  submitted ')

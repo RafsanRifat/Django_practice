@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from django.urls import reverse_lazy
 from .models import Contact, Post
 from .forms import ContactForm, PostForm
@@ -28,6 +28,7 @@ def contact(request):
             # obj.save()    # django form er khetre code gulo dorkar, r Model form use korle code gulo use na kore form.save() diyeai kaj hbe
             form.save()  # uporer code gulo na use kore eita use korleo form data save hobe database a
             messages.success(request, 'Form successfully  submitted ')
+            return redirect('post')
     else:
         form = ContactForm()
     contex = {'form': form}

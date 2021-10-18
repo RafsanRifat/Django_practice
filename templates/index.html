@@ -1,15 +1,27 @@
 {% extends 'basic.html' %}
+{% load static %}
+
 
 {% block title %}
     practice
 {% endblock %}
 
 {% block content %}
-    <h1 style="margin: auto">Hey ! Whelcome</h1>
-    <h2>Your names:</h2>
-    {% for n in name %}
-        {{ n }}<br>
-    {% endfor %}
-{#    #fghfghfg#}
-{#    #fghfghfg#}
+    <div class="banner">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="banner-content-wrapper" style="margin-top: 250px; padding-right: 50px">
+                    <h1 style="margin-bottom: 30px"><b>Online tuition with Elite IB tutors
+                    </b></h1>
+                    <h4>Support for students online and face-to-face throughout the IBDP & MYP programmes. Join
+                        thousands of
+                        students and register now.
+                    </h4>
+                </div>
+            </div>
+            <div class="col-md-6" >
+                <img src="/media/myapp/images/banner.png/" style="width: 100%; margin-top: 100px;">
+            </div>
+        </div>
+    </div>
 {% endblock %}

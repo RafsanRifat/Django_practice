@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'multiselectfield',
     'django.contrib.humanize',
+    'session',
 ]
 
 MIDDLEWARE = [

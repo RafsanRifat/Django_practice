@@ -7,4 +7,4 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 def loginuser(request):
-    return render(request, 'login.html')
+    return render(request, 'session/login.html')

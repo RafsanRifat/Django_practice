@@ -18,5 +18,5 @@ def loginuser(request):
                 return redirect('home')
             else:
                 messages.error(request, 'invalid User name or Password')
-
-    return render(request, 'session/login.html')
+    else:
+        return render(request, 'session/login.html')

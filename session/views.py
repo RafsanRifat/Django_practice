@@ -13,8 +13,9 @@ def loginuser(request):
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            if User is not None:
-                login(user)
+            user = authenticate(username = username, password = password)
+            if user is not None:
+                login(request, user)
                 return redirect('home')
             else:
                 messages.error(request, 'invalid User name or Password')

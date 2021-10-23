@@ -13,7 +13,7 @@ def loginuser(request):
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            if user is not None:
+            if User is not None:
                 login(user)
                 return redirect('home')
             else:
@@ -21,4 +21,5 @@ def loginuser(request):
         else:
             messages.error(request, 'invalid User name or Password')
     else:
-        return render(request, 'session/login.html')
+        form = AuthenticationForm()
+        return render(request, 'session/login.html', {'form': form})

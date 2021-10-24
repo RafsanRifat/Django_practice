@@ -24,3 +24,10 @@ def loginuser(request):
     else:
         form = AuthenticationForm()
         return render(request, 'session/login.html', {'form': form})
+
+
+
+def logoutuser(request):
+    logout(request)
+    messages.success(request, "Successfully loged out")
+    return redirect('home')

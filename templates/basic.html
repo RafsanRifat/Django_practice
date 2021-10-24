@@ -52,17 +52,23 @@
                     <a href="/admin/" class="nav-link" target="_blank">Admin</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link" >{% now 'h:i A' %}</a>
+                    <a href="" class="nav-link">{% now 'h:i A' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link" >{% now 'D jS F Y' %}</a>
+                    <a href="" class="nav-link">{% now 'D jS F Y' %}</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{% url 'login' %}" class="btn btn-info mx-3" >Login</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{% url 'logout' %}" class="btn btn-warning mx-3" >Logout</a>
-                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{% url 'logout' %}" class="btn btn-warning mx-3">Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'login' %}" class="btn btn-info mx-3">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="btn btn-primary mx-3">Signup</a>
+                    </li>
+                {% endif %}
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

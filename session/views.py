@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import SignUpForm
@@ -46,4 +46,12 @@ def registration(request):
 
 
 def changepassword(request):
-    return render(request, 'session/change_pass.html')
+    if request.method == 'POST':
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+        if form.is_valid():
+            update_session_auth_hash(request, form.user)
+            messages.success(request, 'Password successfully changed')
+            return redirect('home')
+    else:
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+    return render(request, 'session/change_pass.html', {'form': form})

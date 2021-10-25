@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -43,3 +43,7 @@ def registration(request):
     else:
         form = SignUpForm
     return render(request, 'session/signup.html', {'form': form})
+
+
+def changepassword(request):
+    return request(request, 'session/change_pass.hmtl')

@@ -46,4 +46,4 @@ def registration(request):
 
 
 def changepassword(request):
-    return request(request, 'session/change_pass.hmtl')
+    return render(request, 'session/change_pass.html')

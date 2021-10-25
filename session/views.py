@@ -53,5 +53,5 @@ def changepassword(request):
             messages.success(request, 'Password successfully changed')
             return redirect('home')
     else:
-        form = PasswordChangeForm(data=request.POST, user=request.user)
+        form = PasswordChangeForm(user=request.user)
     return render(request, 'session/change_pass.html', {'form': form})

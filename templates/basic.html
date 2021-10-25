@@ -58,9 +58,19 @@
                     <a href="" class="nav-link">{% now 'D jS F Y' %}</a>
                 </li>
                 {% if user.is_authenticated %}
-                    <li class="nav-item">
+                      <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ user.username }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li class="nav-item">
                         <a href="{% url 'logout' %}" class="btn btn-warning mx-3">Logout</a>
                     </li>
+                        <li><a class="dropdown-item btn btn-warning" href="">Change Password</a></li>
+                    </ul>
+                </li>
+
                 {% else %}
                     <li class="nav-item">
                         <a href="{% url 'login' %}" class="btn btn-info mx-3">Login</a>

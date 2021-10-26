@@ -53,7 +53,7 @@ def registration(request):
             send_mail = form.cleaned_data.get('email')
             email = EmailMessage(mail_subject, messages, to=[send_mail])
             email.send()
-            messages.success(request, 'successfully created your account')
+            # messages.success(request, 'successfully created your account')
             return redirect('login')
     else:
         form = SignUpForm

@@ -4,7 +4,10 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import SignUpForm
-
+""" For email """
+from django.contrib.sites.shortcuts import get_current_site
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
 
 # Create your views here.
 
@@ -38,7 +41,10 @@ def registration(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
+           user = form.save()
+           current_site = get_current_site(request)
+           mail_subject = 'Account created'
+           
             return redirect('login')
     else:
         form = SignUpForm
